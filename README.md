@@ -1,6 +1,28 @@
-OpenVPN for Android
+OpenVPN for Android (AWS SAML Fork)
 =============
-![build status](https://github.com/schwabe/ics-openvpn/actions/workflows/build.yaml/badge.svg)
+
+## AWS Client VPN SAML Support
+
+This fork adds SAML/federated authentication support for AWS Client VPN endpoints.
+
+**How it works:**
+1. Connect to your AWS Client VPN endpoint as normal
+2. A browser window opens for your company's SSO login (Okta, Azure AD, etc.)
+3. After logging in, the VPN connects automatically
+
+**Setup:**
+- Import your `.ovpn` file as usual — no extra configuration needed
+- The `auth-federate` directive in the config is detected automatically
+
+**Technical details:**
+- Implements the two-phase CRV1 authentication flow described [here](https://smallhacks.wordpress.com/2020/07/08/aws-client-vpn-internals/)
+- Runs a local HTTP server on `127.0.0.1:35001` to capture the SAMLResponse callback
+- Native OpenVPN buffer sizes increased to accommodate large SAML tokens
+- Normal (non-AWS) VPN profiles are completely unaffected
+
+---
+
+> *The following sections are from the original [ics-openvpn](https://github.com/schwabe/ics-openvpn) by Arne Schwabe and may not apply to this fork.*
 
 Note to other developers 
 ------------------------
