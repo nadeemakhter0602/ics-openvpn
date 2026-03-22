@@ -153,7 +153,9 @@ class VPNPreferences : BaseActivity(), VpnStatus.ProfileNotifyListener {
 
 
     override fun onBackPressed() {
-        setResult(RESULT_OK, intent)
+        val resultIntent = Intent()
+        resultIntent.putExtra(VpnProfile.EXTRA_PROFILEUUID, mProfileUUID)
+        setResult(RESULT_OK, resultIntent)
         super.onBackPressed()
     }
 
