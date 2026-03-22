@@ -462,7 +462,7 @@ public class OpenVPNService extends VpnService implements StateListener, Callbac
 
 
         Intent intent = new Intent();
-        intent.setComponent(new ComponentName(this, getPackageName() + ".activities.MainActivity"));
+        intent.setComponent(new ComponentName(this, "de.blinkt.openvpn.activities.MainActivity"));
 
         intent.putExtra("PAGE", "graph");
         intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
@@ -1477,7 +1477,7 @@ public class OpenVPNService extends VpnService implements StateListener, Callbac
                 nbuilder.setContentText(challenge);
 
                 intent = new Intent();
-                intent.setComponent(new ComponentName(this, getPackageName() + ".activities.CredentialsPopup"));
+                intent.setComponent(new ComponentName(this, "de.blinkt.openvpn.activities.CredentialsPopup"));
 
                 intent.putExtra(EXTRA_CHALLENGE_TXT, challenge);
 
