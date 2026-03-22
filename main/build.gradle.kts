@@ -24,6 +24,7 @@ android {
     ndkVersion = "29.0.14206865"
 
     defaultConfig {
+        applicationId = "de.blinkt.openvpn.awssaml"
         minSdk = 21
         targetSdk = 36
         //targetSdkPreview = "UpsideDownCake"
